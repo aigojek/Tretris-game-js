@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/x-icon" href="ikona.ico">
+    <title>terrorist</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/js-cookie@3.0.5/dist/js.cookie.min.js"></script>
+    <script src="script.js"></script>
+</head>
+<body onload="nowy_kloc(), ruszanie(), silnik(), wyniki(), najlepszy_wynik()">
+    <div id="start" onclick="spadanie()">START</div>
+    <div id="wynik_live"></div>
+    <div id="best_score">BEST SCORE: 
+        <div id="bs"></div>
+    </div>
+    <div id="next">
+        <div class="siatka ne" id="next_1"></div>
+        <div class="siatka ne" id="next_2"></div>
+        <div class="siatka ne" id="next_3"></div>
+        <div class="siatka ne" id="next_4"></div>
+        <div class="siatka ne" id="next_5"></div>
+        <div class="siatka ne" id="next_6"></div>
+        <div class="siatka ne" id="next_7"></div>
+        <div class="siatka ne" id="next_8"></div>
+        <div class="siatka ne" id="next_9"></div>
+        <div class="siatka ne" id="next_10"></div>
+        <div class="siatka ne" id="next_11"></div>
+        <div class="siatka ne" id="next_12"></div>
+        <div class="siatka ne" id="next_13"></div>
+        <div class="siatka ne" id="next_14"></div>
+        <div class="siatka ne" id="next_15"></div>
+        <div class="siatka ne" id="next_16"></div>
+        <div class="siatka ne" id="next_17"></div>
+        <div class="siatka ne" id="next_18"></div>
+        <div class="siatka ne" id="next_19"></div>
+        <div class="siatka ne" id="next_20"></div>
+        <div class="siatka ne" id="next_21"></div>
+        <div class="siatka ne" id="next_22"></div>
+        <div class="siatka ne" id="next_23"></div>
+        <div class="siatka ne" id="next_24"></div>
+        <div class="siatka ne" id="next_25"></div>
+    </div>
+    <div id="next_swap">
+        <div class="siatka mniejsza_siatka sw" id="swap_1"></div>
+        <div class="siatka mniejsza_siatka sw" id="swap_2"></div>
+        <div class="siatka mniejsza_siatka sw" id="swap_3"></div>
+        <div class="siatka mniejsza_siatka sw" id="swap_4"></div>
+        <div class="siatka mniejsza_siatka sw" id="swap_5"></div>
+        <div class="siatka mniejsza_siatka sw" id="swap_6"></div>
+        <div class="siatka mniejsza_siatka sw" id="swap_7"></div>
+        <div class="siatka mniejsza_siatka sw" id="swap_8"></div>
+        <div class="siatka mniejsza_siatka sw" id="swap_9"></div>
+        <div class="siatka mniejsza_siatka sw" id="swap_10"></div>
+        <div class="siatka mniejsza_siatka sw" id="swap_11"></div>
+        <div class="siatka mniejsza_siatka sw" id="swap_12"></div>
+        <div class="siatka mniejsza_siatka sw" id="swap_13"></div>
+        <div class="siatka mniejsza_siatka sw" id="swap_14"></div>
+        <div class="siatka mniejsza_siatka sw" id="swap_15"></div>
+        <div class="siatka mniejsza_siatka sw" id="swap_16"></div>
+        <div class="siatka mniejsza_siatka sw" id="swap_17"></div>
+        <div class="siatka mniejsza_siatka sw" id="swap_18"></div>
+        <div class="siatka mniejsza_siatka sw" id="swap_19"></div>
+        <div class="siatka mniejsza_siatka sw" id="swap_20"></div>
+        <div class="siatka mniejsza_siatka sw" id="swap_21"></div>
+        <div class="siatka mniejsza_siatka sw" id="swap_22"></div>
+        <div class="siatka mniejsza_siatka sw" id="swap_23"></div>
+        <div class="siatka mniejsza_siatka sw" id="swap_24"></div>
+        <div class="siatka mniejsza_siatka sw" id="swap_25"></div>
+    </div>
+    <div id="pudelko">
+        <span></span>
+        <div class="siatka end" id="1"></div>
+        <div class="siatka end" id="2"></div>
+        <div class="siatka sbb end" id="3"></div>
+        <div class="siatka sbt" id="4"></div>
+        <div class="siatka" id="5"></div>
+        <div class="siatka" id="6"></div>
+        <div class="siatka" id="7"></div>
+        <div class="siatka" id="8"></div>
+        <div class="siatka" id="9"></div>
+        <div class="siatka" id="10"></div>
+        <div class="siatka" id="11"></div>
+        <div class="siatka" id="12"></div>
+        <div class="siatka" id="13"></div>
+        <div class="siatka" id="14"></div>
+        <div class="siatka" id="15"></div>
+        <span></span>
+        <div class="siatka end" id="16"></div>
+        <div class="siatka end" id="17"></div>
+        <div class="siatka sbb end" id="18"></div>
+        <div class="siatka sbt" id="19"></div>
+        <div class="siatka" id="20"></div>
+        <div class="siatka" id="21"></div>
+        <div class="siatka" id="22"></div>
+        <div class="siatka" id="23"></div>
+        <div class="siatka" id="24"></div>
+        <div class="siatka" id="25"></div>
+        <div class="siatka" id="26"></div>
+        <div class="siatka" id="27"></div>
+        <div class="siatka" id="28"></div>
+        <div class="siatka" id="29"></div>
+        <div class="siatka" id="30"></div>
+        <span></span>
+        <div class="siatka end" id="31"></div>
+        <div class="siatka end" id="32"></div>
+        <div class="siatka sbb end" id="33"></div>
+        <div class="siatka sbt" id="34"></div>
+        <div class="siatka" id="35"></div>
+        <div class="siatka" id="36"></div>
+        <div class="siatka" id="37"></div>
+        <div class="siatka" id="38"></div>
+        <div class="siatka" id="39"></div>
+        <div class="siatka" id="40"></div>
+        <div class="siatka" id="41"></div>
+        <div class="siatka" id="42"></div>
+        <div class="siatka" id="43"></div>
+        <div class="siatka" id="44"></div>
+        <div class="siatka" id="45"></div>
+        <span></span>
+        <div class="siatka end" id="46"></div>
+        <div class="siatka end" id="47"></div>
+        <div class="siatka sbb end" id="48"></div>
+        <div class="siatka sbt" id="49"></div>
+        <div class="siatka" id="50"></div>
+        <div class="siatka" id="51"></div>
+        <div class="siatka" id="52"></div>
+        <div class="siatka" id="53"></div>
+        <div class="siatka" id="54"></div>
+        <div class="siatka" id="55"></div>
+        <div class="siatka" id="56"></div>
+        <div class="siatka" id="57"></div>
+        <div class="siatka" id="58"></div>
+        <div class="siatka" id="59"></div>
+        <div class="siatka" id="60"></div>
+        <span></span>
+        <div class="siatka end" id="61"></div>
+        <div class="siatka end" id="62"></div>
+        <div class="siatka sbb end" id="63"></div>
+        <div class="siatka sbt" id="64"></div>
+        <div class="siatka" id="65"></div>
+        <div class="siatka" id="66"></div>
+        <div class="siatka" id="67"></div>
+        <div class="siatka" id="68"></div>
+        <div class="siatka" id="69"></div>
+        <div class="siatka" id="70"></div>
+        <div class="siatka" id="71"></div>
+        <div class="siatka" id="72"></div>
+        <div class="siatka" id="73"></div>
+        <div class="siatka" id="74"></div>
+        <div class="siatka" id="75"></div>
+        <span></span>
+        <div class="siatka end" id="76"></div>
+        <div class="siatka end" id="77"></div>
+        <div class="siatka sbb end" id="78"></div>
+        <div class="siatka sbt" id="79"></div>
+        <div class="siatka" id="80"></div>
+        <div class="siatka" id="81"></div>
+        <div class="siatka" id="82"></div>
+        <div class="siatka" id="83"></div>
+        <div class="siatka" id="84"></div>
+        <div class="siatka" id="85"></div>
+        <div class="siatka" id="86"></div>
+        <div class="siatka" id="87"></div>
+        <div class="siatka" id="88"></div>
+        <div class="siatka" id="89"></div>
+        <div class="siatka" id="90"></div>
+        <span></span>
+        <div class="siatka end" id="91"></div>
+        <div class="siatka end" id="92"></div>
+        <div class="siatka sbb end" id="93"></div>
+        <div class="siatka sbt" id="94"></div>
+        <div class="siatka" id="95"></div>
+        <div class="siatka" id="96"></div>
+        <div class="siatka" id="97"></div>
+        <div class="siatka" id="98"></div>
+        <div class="siatka" id="99"></div>
+        <div class="siatka" id="100"></div>
+        <div class="siatka" id="101"></div>
+        <div class="siatka" id="102"></div>
+        <div class="siatka" id="103"></div>
+        <div class="siatka" id="104"></div>
+        <div class="siatka" id="105"></div>
+        <span></span>
+        <div class="siatka end" id="106"></div>
+        <div class="siatka end" id="107"></div>
+        <div class="siatka sbb end" id="108"></div>
+        <div class="siatka sbt" id="109"></div>
+        <div class="siatka" id="110"></div>
+        <div class="siatka" id="111"></div>
+        <div class="siatka" id="112"></div>
+        <div class="siatka" id="113"></div>
+        <div class="siatka" id="114"></div>
+        <div class="siatka" id="115"></div>
+        <div class="siatka" id="116"></div>
+        <div class="siatka" id="117"></div>
+        <div class="siatka" id="118"></div>
+        <div class="siatka" id="119"></div>
+        <div class="siatka" id="120"></div>
+        <span></span>
+        <div class="siatka end" id="121"></div>
+        <div class="siatka end" id="122"></div>
+        <div class="siatka sbb end" id="123"></div>
+        <div class="siatka sbt" id="124"></div>
+        <div class="siatka" id="125"></div>
+        <div class="siatka" id="126"></div>
+        <div class="siatka" id="127"></div>
+        <div class="siatka" id="128"></div>
+        <div class="siatka" id="129"></div>
+        <div class="siatka" id="130"></div>
+        <div class="siatka" id="131"></div>
+        <div class="siatka" id="132"></div>
+        <div class="siatka" id="133"></div>
+        <div class="siatka" id="134"></div>
+        <div class="siatka" id="135"></div>
+        <span></span>
+        <div class="siatka end" id="136"></div>
+        <div class="siatka end" id="137"></div>
+        <div class="siatka sbb end" id="138"></div>
+        <div class="siatka sbt" id="139"></div>
+        <div class="siatka" id="140"></div>
+        <div class="siatka" id="141"></div>
+        <div class="siatka" id="142"></div>
+        <div class="siatka" id="143"></div>
+        <div class="siatka" id="144"></div>
+        <div class="siatka" id="145"></div>
+        <div class="siatka" id="146"></div>
+        <div class="siatka" id="147"></div>
+        <div class="siatka" id="148"></div>
+        <div class="siatka" id="149"></div>
+        <div class="siatka" id="150"></div>
+        <span></span>
+    </div>
+</body>
+</html>
